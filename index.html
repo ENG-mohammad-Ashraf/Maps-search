@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" type="image/png" href="bus.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps search</title>
+</head>
+<body>
+    
+    <div class="parent">
+        <div class="div1">
+            <div class="hero">
+                <h1  data-aos="fade-right"  data-aos-duration="1700">Find your location easily</h1>
+                <h2 data-aos="fade-up"  data-aos-duration="1900" class="p-hero">Search for any address and see its location directly on the map.</h2>
+                 <div class="search-box">
+                    <input type="text" id="placeInput" placeholder="Type the address of the place" data-aos="zoom-out"  data-aos-duration="2000">
+                    <button onclick="searchPlace()" data-aos="fade-left"  data-aos-duration="2100">Search now</button>
+                </div>
+            </div>
+        </div>
+        <div class="div2">
+          <section data-aos="fade-up"  data-aos-duration="1700">
+              <iframe id="mapFrame" 
+                src="https://www.google.com/maps?q=Amman&output=embed" 
+                allowfullscreen>
+              </iframe>
+          </section>
+              <section>
+                 <h1 style="color: #fff;" data-aos="zoom-out"  data-aos-duration="1600">Features of our service</h1>
+                 <div class="features">
+                   <div class="feature" data-aos="fade-right"  data-aos-duration="1700">✅ Easy to use </div>
+                   <div class="feature" data-aos="fade-down"  data-aos-duration="2000">✅ Accurate results</div>
+                   <div class="feature" data-aos="fade-up"  data-aos-duration="2300">✅ Free for all</div>
+                   <div class="feature" data-aos="fade-left"  data-aos-duration="2600">✅ Integrated into your site</div>
+                 </div>
+              </section>
+               <section class="stats" style="margin-top: 110px;">
+                 <div class="stat" data-aos="fade-in"  data-aos-duration="1700">
+                   <h3 id="addresses" >5000</h3>
+                   <p>Searched title</p>
+                 </div>
+                 <div class="stat" data-aos="fade-in"  data-aos-duration="1900">
+                   <h3 id="users">5000</h3>
+                   <p>Daily active user</p>
+                 </div>
+                 <div class="stat" data-aos="fade-in"  data-aos-duration="2100">
+                   <h3 id="accuracy">99%</h3>
+                   <p>Accuracy of results</p>
+                 </div>
+
+              </section>
+        </div>
+        <div class="div3" data-aos="fade-in"  data-aos-duration="1700">
+            <section style="background:transparent; color:#fff;">
+              <h2>Get started now and locate yourself in seconds.</h2>
+              <button onclick="document.getElementById('placeInput').focus()">Try the service for free</button>
+            </section>
+        </div>
+        <div class="div4">
+          <footer>
+              <p>© 2025 All Rights Reserved</p>
+          </footer>
+        </div>
+    </div>
+     <script>
+        function searchPlace() {
+          const place = document.getElementById("placeInput").value;
+          if(place.trim() !== "") {
+            const iframe = document.getElementById("mapFrame");
+            iframe.src = `https://www.google.com/maps?q=${encodeURIComponent(place)}&output=embed`;
+          } else {
+            alert("Please enter the new location name...");
+          }
+    }
+
+    let users = 5000;
+    const usersElement = document.getElementById("users");
+    function increaseUsers() {
+      // نختار رقم عشوائي بين 1 و 5
+      let randomIncrease = Math.floor(Math.random() * 5) + 1;
+      users += randomIncrease;
+      usersElement.textContent = users;
+
+      // نكرر العملية كل 2 ثانية
+      setTimeout(increaseUsers, 5000);
+    }
+
+    // نشغل الكود
+    increaseUsers();
+    
+const searchUser = document.getElementById("addresses");
+  let search = parseInt(searchUser.textContent); // نجيب الرقم من الـ h3
+  function randomIncrease(){
+    let RandomIncrease = Math.floor(Math.random() * 4) + 1; // من 1 إلى 5
+    search += RandomIncrease;
+    searchUser.textContent = search;
+  }
+
+  // نخليها تتكرر كل 5 ثواني
+  setInterval(randomIncrease, 5000);
+  </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
