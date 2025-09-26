@@ -20,17 +20,18 @@
                 <h2 data-aos="fade-up"  data-aos-duration="1900" class="p-hero">Search for any address and see its location directly on the map.</h2>
                  <div class="search-box">
                     <input type="text" id="placeInput" placeholder="Type the address of the place" data-aos="zoom-out"  data-aos-duration="2000">
-                    <button onclick="searchPlace()" data-aos="fade-left"  data-aos-duration="2100">Search now</button>
+                       <a href="#mapFrame"><button onclick="searchPlace()" data-aos="fade-left"  data-aos-duration="2100">Search now</button></a>
                 </div>
             </div>
         </div>
         <div class="div2">
-          <section>
+        <section data-aos="fade-in"  data-aos-duration="2100">
               <iframe id="mapFrame" 
                 src="https://www.google.com/maps?q=Amman&output=embed" 
                 allowfullscreen>
               </iframe>
-          </section>
+        </section>
+
               <section>
                  <h1 style="color: #fff;" data-aos="zoom-out"  data-aos-duration="1600">Features of our service</h1>
                  <div class="features">
@@ -112,3 +113,4 @@ const searchUser = document.getElementById("addresses");
 </body>
 
 </html>
+
